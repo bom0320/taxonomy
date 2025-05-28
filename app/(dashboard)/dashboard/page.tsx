@@ -1,5 +1,5 @@
+// 로그인된 사용자의 게시글(Post) 목록을 보여주는 대시보드 페이지
 import { redirect } from "next/navigation"
-
 import { authOptions } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { getCurrentUser } from "@/lib/session"

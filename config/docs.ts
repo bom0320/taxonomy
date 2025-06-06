@@ -1,5 +1,7 @@
 import { DocsConfig } from "types"
 
+// 구성 정보 (메뉴, 링크, 섹션 등)를 객체로 저장해두고
+// 컴포넌트에서 불러와서 동적으로 렌더링하는 방식
 export const docsConfig: DocsConfig = {
   mainNav: [
     {

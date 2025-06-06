@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
+// 기타 UI 관련 유틸/컴포넌트
 import { MainNavItem } from "types"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -11,8 +12,8 @@ import { Icons } from "@/components/icons"
 import { MobileNav } from "@/components/mobile-nav"
 
 interface MainNavProps {
-  items?: MainNavItem[]
-  children?: React.ReactNode
+  items?: MainNavItem[] // 네비게이션 메뉴 목록(config에서 전달됨)
+  children?: React.ReactNode // MainNav 안에 뭘 넣으면, 그게 children
 }
 
 export function MainNav({ items, children }: MainNavProps) {
@@ -27,6 +28,7 @@ export function MainNav({ items, children }: MainNavProps) {
           {siteConfig.name}
         </span>
       </Link>
+      
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
           {items?.map((item, index) => (

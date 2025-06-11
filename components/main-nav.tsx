@@ -19,7 +19,7 @@ interface MainNavProps {
 export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment()
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
-
+ 
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
@@ -29,7 +29,11 @@ export function MainNav({ items, children }: MainNavProps) {
         </span>
       </Link>
       
+      
       {items?.length ? (
+      // 데스크탑 사이즈(nav 메뉴)를 보여주는 조건부 
+       // items가 존재하고, 요소가 하나 이상일 때만 렌더링됨
+      // 즉, items 배열에 요소가 들어 있으면 length는 0보다 커지므로 조건을 만족하게 됨
         <nav className="hidden gap-6 md:flex">
           {items?.map((item, index) => (
             <Link

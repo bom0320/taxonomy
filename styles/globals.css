@@ -1,10 +1,12 @@
+/*tailwind.config.js에 설정한 값을 실제 브라우저 CSS에 적용되게 연결하는 다리 역할을 함*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /*CSS 변수 정의*/
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 100%; 
     --foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -79,3 +81,4 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+

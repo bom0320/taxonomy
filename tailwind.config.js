@@ -1,3 +1,4 @@
+// tailwind.config.js는 Tailwind에 기본으로 없는 스타일을 사용자가 직접 확장해서 정의하는 파일
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */

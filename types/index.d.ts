@@ -15,15 +15,15 @@ export type SidebarNavItem = {
   title: string
   disabled?: boolean
   external?: boolean
-  icon?: keyof typeof Icons
+  icon?: keyof typeof Icons // Icons 객체에 들어 있는 키 이름만 아이콘으로 지정할 수 있음
 } & (
   | {
-      href: string
-      items?: never
+      href: string // 링크로 바로 연결되는 문서
+      items?: never // 단일 문서 (잎노드)
     }
   | {
-      href?: string
-      items: NavLink[]
+      href?: string // 문서를 여러개 포함하는 그룹
+      items: NavLink[] //  폴더 (가지노드)
     }
 )
 

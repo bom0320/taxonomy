@@ -20,28 +20,34 @@ export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
           <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-medium">
             {item.title}
           </h4>
+
+           {/* 서브 항목이 있으면 재귀 컴포넌트 호출 */}
           {item.items ? (
             <DocsSidebarNavItems items={item.items} pathname={pathname} />
           ) : null}
         </div>
-      ))}
+      ))}ㄴ
     </div>
   ) : null
 }
+
 
 interface DocsSidebarNavItemsProps {
   items: SidebarNavItem[]
   pathname: string | null
 }
 
+// 재귀 컴포넌트 DocsSidebarNavItems
 export function DocsSidebarNavItems({
   items,
   pathname,
 }: DocsSidebarNavItemsProps) {
+
   return items?.length ? (
     <div className="grid grid-flow-row auto-rows-max text-sm">
       {items.map((item, index) =>
         !item.disabled && item.href ? (
+           // a) “정상 링크” 케이스
           <Link
             key={index}
             href={item.href}
@@ -51,12 +57,14 @@ export function DocsSidebarNavItems({
                 "bg-muted": pathname === item.href,
               }
             )}
+            
             target={item.external ? "_blank" : ""}
             rel={item.external ? "noreferrer" : ""}
           >
             {item.title}
           </Link>
         ) : (
+          // b) “비활성(disabled)” 케이스
           <span className="flex w-full cursor-not-allowed items-center rounded-md p-2 opacity-60">
             {item.title}
           </span>
